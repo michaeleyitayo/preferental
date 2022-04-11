@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.get("/", (req: Request, res: Response) => {
-  res.status(200).send({ data: "PREFERENTIAL Backend Application" });
+  res.status(200).send({ data: "PREFERENTAL Backend Application" });
 });
 
 app.use("/api/auth", authRouter);
