@@ -3,5 +3,6 @@ export interface IUser {
   lastName: string;
   email: string;
   password: string;
+  role: string;
   validatePassword(passsword: string): boolean;
 }
