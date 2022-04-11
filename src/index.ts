@@ -7,6 +7,8 @@ dotenv.config();
 import "./config/database";
 import AppError from "./utils/appError";
 import globalErrorHandler from "./controllers/error";
+import authRouter from "./routes/auth";
+import propertyRouter from "./routes/property";
 
 const app: Application = express();
 
@@ -19,8 +21,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.get("/", (req: Request, res: Response) => {
-  res.status(200).send({ data: "PREFERENTIAL Backend Application" });
+  res.status(200).send({ data: "PREFERENTAL Backend Application" });
 });
+
+app.use("/api/auth", authRouter);
+app.use("/api/properties", propertyRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

@@ -1,7 +1,8 @@
 import { passwordToHash } from "../helpers/auth";
-import { createAuthToken, signupUser } from "../services/auth";
+import { createAuthToken, loginUser, signupUser } from "../services/auth";
+// import { IUser } from "../types/user";
 import catchAsync from "../utils/catchAsync";
-import { signupValidator } from "../validators/auth";
+import { loginValidator, signupValidator } from "../validators/auth";
 
 const signupController = catchAsync(async (req, res, next) => {
   signupValidator(req.body, next);
@@ -15,4 +16,12 @@ const signupController = catchAsync(async (req, res, next) => {
     .json({ status: "success", message: "User signed up successfully", token });
 });
 
-export { signupController };
+const loginController = catchAsync(async (req, res, next) => {
+  loginValidator(req.body, next);
+  const token = await loginUser(req.body, next);
+  res
+    .status(200)
+    .json({ status: "success", message: "Login successful", token });
+});
+
+export { signupController, loginController };

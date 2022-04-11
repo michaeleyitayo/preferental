@@ -1,7 +1,7 @@
 {
-    "name": "preferential",
+    "name": "preferental",
     "version": "1.0.0",
-    "description": "Preferential Test",
+    "description": "Preferental Test",
     "main": "src/index.ts",
     "author": "Michael Eyitayo",
     "license": "MIT",

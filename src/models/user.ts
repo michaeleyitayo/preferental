@@ -1,4 +1,4 @@
-import { Model, model, Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import { IUser } from "../types/user";
 import { verifyBcryptPassword } from "../helpers/auth";
 
@@ -24,6 +24,11 @@ const userSchema = new Schema<IUser>(
     password: {
       type: String,
       select: false,
+    },
+    role: {
+      type: String,
+      enum: ["user", "agent", "admin"],
+      default: "user",
     },
   },
   { timestamps: true }

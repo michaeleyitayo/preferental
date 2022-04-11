@@ -1,3 +1,3 @@
-# preferential
+# preferental
 
-Preferential Test assessment written in Node.js + Expressjs + Typescript
+Preferental Test assessment written in Node.js + Expressjs + Typescript
