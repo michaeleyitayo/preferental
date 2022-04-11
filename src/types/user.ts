@@ -6,3 +6,10 @@ export interface IUser {
   role: string;
   validatePassword(passsword: string): boolean;
 }
+
+export interface IReqUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;
+}

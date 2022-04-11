@@ -1,5 +1,6 @@
 import { passwordToHash } from "../helpers/auth";
 import { createAuthToken, loginUser, signupUser } from "../services/auth";
+// import { IUser } from "../types/user";
 import catchAsync from "../utils/catchAsync";
 import { loginValidator, signupValidator } from "../validators/auth";
 

@@ -1,8 +1,14 @@
 import { NextFunction, Request, Response } from "express";
+import { IReqUser, IUser } from "./user";
+
+interface CustomRequest extends Request {
+  user: IReqUser;
+}
 
 type IControllerFn = (req: Request, res: Response, next: NextFunction) => any;
+
 type IControllerFnP = (
-  req: Request,
+  req: CustomRequest,
   res: Response,
   next: NextFunction
 ) => Promise<any>;
