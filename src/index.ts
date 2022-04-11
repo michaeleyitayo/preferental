@@ -8,6 +8,7 @@ import "./config/database";
 import AppError from "./utils/appError";
 import globalErrorHandler from "./controllers/error";
 import authRouter from "./routes/auth";
+import propertyRouter from "./routes/property";
 
 const app: Application = express();
 
@@ -24,6 +25,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/api/auth", authRouter);
+app.use("/api/properties", propertyRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

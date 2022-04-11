@@ -1,3 +1,5 @@
+import { ObjectId } from "mongoose";
+
 export interface IUser {
   firstName: string;
   lastName: string;
@@ -7,9 +9,6 @@ export interface IUser {
   validatePassword(passsword: string): boolean;
 }
 
-export interface IReqUser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  role: string;
+export interface IReqUser extends IUser {
+  _id?: ObjectId;
 }

@@ -1,4 +1,4 @@
-import { Model, model, Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import { IUser } from "../types/user";
 import { verifyBcryptPassword } from "../helpers/auth";
 
