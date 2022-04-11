@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 import "./config/database";
+import AppError from "./utils/appError";
+import globalErrorHandler from "./controllers/error";
 
 const app: Application = express();
 
@@ -19,6 +21,13 @@ if (process.env.NODE_ENV === "development") {
 app.get("/", (req: Request, res: Response) => {
   res.status(200).send({ data: "PREFERENTIAL Backend Application" });
 });
+
+app.all("*", (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
+
+app.use(globalErrorHandler);
+
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
